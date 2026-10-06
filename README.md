@@ -1,37 +1,31 @@
- ###
-
-
-#  ==============================================================================
 # 🧬 PROYECTO SCIENTIA: SISTEMA MULTI-AGENTE (Versión Colab/VSCode)
-# ==============================================================================
 
+Este archivo contiene el código para las 4 CELDAS de Colab.
 
-#              Este archivo contiene el código para las 4 CELDAS de Colab.
+---
 
-#   ==============================================================================
-#    🛠️ PASO 0: Configuración del Entorno (Léelo antes de copiar) 
-#  ==============================================================================
-#  Ve a la web de Google Colab: https://colab.research.google.com/
-# Haz clic en "Nuevo cuaderno".
-# En el menú superior, ve a Entorno de ejecución > Cambiar tipo de entorno de ejecución.
-# En "Acelerador de hardware", selecciona T4 GPU (¡Importantísimo!).
-# Haz clic en Guardar.
-# Ahora, crea 4 celdas de código en Colab (puedes añadir celdas pulsando + Texto o + Código arriba).
-# Copia y pega el contenido de abajo celda por celda.
+### 🛠️ PASO 0: Configuración del Entorno (Léelo antes de copiar)
 
+1. Ve a la web de Google Colab: https://colab.research.google.com/
+2. Haz clic en "Nuevo cuaderno".
+3. En el menú superior, ve a **Entorno de ejecución > Cambiar tipo de entorno de ejecución**.
+4. En "Acelerador de hardware", selecciona **T4 GPU** (¡Importantísimo!).
+5. Haz clic en **Guardar**.
+6. Ahora, crea 4 celdas de código en Colab (puedes añadir celdas pulsando `+ Texto` o `+ Código` arriba).
+7. Copia y pega el contenido de abajo celda por celda.
 
-# INSTRUCCIONES RÁPIDAS:
-# Copia el bloque correspondiente a cada celda y ejecútalo en orden.
-# ==============================================================================
+**INSTRUCCIONES RÁPIDAS:**
+Copia el bloque correspondiente a cada celda y ejecútalo en orden.
 
+---
 
-# ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA PRIMERA CELDA DE COLAB ⬇️⬇️⬇️
-# ==============================================================================
-# [CELDA 1] MOTOR NEURONAL E INSTALACIÓN
-# ==============================================================================
-# Esta celda instala Ollama, arranca el servidor en segundo plano y descarga
-# el modelo de IA. Tarda unos 40-60 segundos.
+### ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA PRIMERA CELDA DE COLAB ⬇️️⬇️⬇️
 
+#### [CELDA 1] MOTOR NEURONAL E INSTALACIÓN
+
+Esta celda instala Ollama, arranca el servidor en segundo plano y descarga el modelo de IA. Tarda unos 40-60 segundos.
+
+```python
 import os
 import time
 import subprocess
@@ -43,7 +37,7 @@ print("🚀 INICIANDO FASE 1: INSTALACIÓN...")
 # 1. Instalar dependencias (Usamos os.system para compatibilidad con VS Code)
 print("🔧 Instalando Motor Ollama...")
 os.system("sudo apt-get install -y zstd")
-os.system("curl -fsSL https://ollama.com/install.sh | sh")
+os.system("curl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh")
 os.system("pip install ollama")
 
 import ollama # Importamos tras instalar
@@ -78,17 +72,19 @@ if servidor_listo:
     print("🟢 TODO LISTO. Pasa a la Celda 2.")
 else:
     print("❌ ERROR: El servidor no arrancó. ¿Activaste la T4 GPU?")
-# ⬆️⬆️⬆️ FIN DE LA CELDA 1 ⬆️⬆️⬆️
+```
 
+*⬆️⬆️⬆️ FIN DE LA CELDA 1 ⬆️️⬆️⬆️*
 
+---
 
-# ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA SEGUNDA CELDA DE COLAB ⬇️⬇️⬇️
-# ==============================================================================
-# [CELDA 2] CONEXIÓN A MEMORIA (DRIVE)
-# ==============================================================================
-# Al ejecutar esto, te saldrá una ventana emergente pidiendo permiso
-# para acceder a Google Drive. Acepta para guardar los datos.
+### ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA SEGUNDA CELDA DE COLAB ⬇️⬇️⬇️
 
+#### [CELDA 2] CONEXIÓN A MEMORIA (DRIVE)
+
+Al ejecutar esto, te saldrá una ventana emergente pidiendo permiso para acceder a Google Drive. Acepta para guardar los datos.
+
+```python
 import os
 try:
     from google.colab import drive
@@ -103,17 +99,19 @@ if not os.path.exists(RUTA_CARPETA):
     os.makedirs(RUTA_CARPETA)
 
 print(f"✅ Memoria configurada en: {RUTA_CARPETA}")
-# ⬆️⬆️⬆️ FIN DE LA CELDA 2 ⬆️⬆️⬆️
+```
 
+*⬆️⬆️⬆️ FIN DE LA CELDA 2 ⬆️⬆️⬆️*
 
+---
 
-# ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA TERCERA CELDA DE COLAB ⬇️⬇️⬇️
-# ==============================================================================
-# [CELDA 3] SIMULACIÓN (EL DEBATE)
-# ==============================================================================
-# Esta es la celda principal. Ejecútala para ver a las IAs hablar.
-# Para PARAR, pulsa el botón de Stop (⏹️) de la celda.
+### ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA TERCERA CELDA DE COLAB ⬇️⬇⬇️
 
+#### [CELDA 3] SIMULACIÓN (EL DEBATE)
+
+Esta es la celda principal. Ejecútala para ver a las IAs hablar. Para PARAR, pulsa el botón de Stop (⏹️) de la celda.
+
+```python
 import json
 import random
 
@@ -204,16 +202,19 @@ def ejecutar_simulacion():
 
 # Ejecutamos la simulación
 ejecutar_simulacion()
-# ⬆️⬆️⬆️ FIN DE LA CELDA 3 ⬆️⬆️⬆️
+```
 
+*⬆️⬆️⬆️ FIN DE LA CELDA 3 ⬆️⬆️⬆️*
 
+---
 
-# ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA CUARTA CELDA DE COLAB ⬇️⬇️⬇️
-# ==============================================================================
-# [CELDA 4] EL SECRETARIO (RESUMEN)
-# ==============================================================================
-# Ejecuta esta celda DESPUÉS de parar la Celda 3 para ver qué ha pasado.
+### ⬇️⬇️⬇️ COPIA DESDE AQUÍ EN LA CUARTA CELDA DE COLAB ⬇️⬇️⬇️
 
+#### [CELDA 4] EL SECRETARIO (RESUMEN)
+
+Ejecuta esta celda DESPUÉS de parar la Celda 3 para ver qué ha pasado.
+
+```python
 def generar_resumen():
     if not os.path.exists(ARCHIVO_BORRADOR):
         print("❌ No hay datos recientes.")
@@ -233,4 +234,6 @@ def generar_resumen():
         print(f"❌ Error (asegúrate que el servidor de la Celda 1 sigue activo): {e}")
 
 generar_resumen()
-# ⬆️⬆️⬆️ FIN DE LA CELDA 4 ⬆️⬆️⬆️
+```
+
+*⬆️⬆️⬆️ FIN DE LA CELDA 4 ⬆️⬆️⬆️*
